@@ -679,3 +679,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 [data-theme="powerapps"] .fb-1 { top: 28px; right: -52px; }
 [data-theme="powerapps"] .fb-2 { left: -52px; }
 [data-theme="powerapps"] section[id], [data-theme="powerapps"] footer[id] { scroll-margin-top: 84px; }
+/* timeline: keep cards alternating, but read left-aligned inside every card */
+[data-theme="powerapps"] .tl-item:nth-child(odd) { text-align: left; }
+[data-theme="powerapps"] .tl-item:nth-child(odd) .tl-role { justify-content: flex-start; }
+[data-theme="powerapps"] .tl-item:nth-child(odd) .tl-card li { padding-left: 18px; padding-right: 0; }
+[data-theme="powerapps"] .tl-item:nth-child(odd) .tl-card li::before { left: 2px; right: auto; }
