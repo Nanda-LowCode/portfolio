@@ -56,7 +56,7 @@
     })(t0);
     cio.unobserve(el);
   }), { threshold: 0.6 });
-  $$("[data-count]").forEach(el => cio.observe(el));
+  $$("[data-count]").forEach(el => { el.textContent = "0"; cio.observe(el); });
 
   /* ---------- PROJECT CURSOR GLOW ---------- */
   document.addEventListener("pointermove", e => {
@@ -72,10 +72,12 @@
      ============================================================ */
   const JOURNEY = [
     { when: "Jun 2025 — Present", co: "TCS", role: "Assistant Consultant · Kochi", pts: [
+      "Code Apps SME in the AI Cloud unit (Generative AI & Copilot Studio); migrated a Power Pages portal to a Code App using GitHub Copilot and Azure Repos.",
       "Built a Canvas app on SharePoint enabling secure internal ↔ external collaboration, with domain-level access control.",
       "Power Automate approval workflows for external-access requests, plus auto-revocation for compliance & governance.",
       "Shipped a Power Pages vendor portal (Liquid + Web APIs) for multi-step registration & document management.",
-      "Resolved gnarly Dataverse Web API / FetchXML integrations — UTC alignment & HTML-entity encoding across stations."
+      "Resolved gnarly Dataverse Web API / FetchXML integrations — UTC alignment & HTML-entity encoding across stations.",
+      "Conduct Power Platform technical interviews."
     ]},
     { when: "Jul 2022 — May 2025", co: "HCLTech", role: "Lead Consultant · Bengaluru", pts: [
       "Led a team of three supporting Fusion & Citizen developers; ran Power Platform training for Blue Prism devs.",
@@ -120,10 +122,13 @@
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
   };
   const PROJECTS = [
+    { feat: true, kind: "TCS · Code Apps", icon: "scan", title: "Power Pages → Code Apps Migration",
+      desc: "Migrated a Power Pages portal to a Power Apps Code App using GitHub Copilot and Azure Repos, moving a low-code portal onto a pro-code React/TypeScript foundation.",
+      tags: ["Code Apps", "GitHub Copilot", "Azure Repos", "Power Pages", "TypeScript"] },
     { feat: true, kind: "HCLTech · Canvas App", icon: "bell", title: "Incident Management",
       desc: "A Canvas app that replaced ServiceNow for incident tracking, integrated directly with PagerDuty. Cut licensing costs and made triage faster and clearer for on-call teams.",
       tags: ["PowerApps", "PagerDuty", "Power Automate", "Dataverse"],
-      impact: [["−$$$", "Licensing cost"], ["↑", "Triage speed"], ["1", "Tool retired"]] },
+      impact: [["↓", "Licensing cost"], ["↑", "Triage speed"], ["1", "Tool retired"]] },
     { feat: true, kind: "HCLTech · Canvas App", icon: "box", title: "Inventory Management",
       desc: "Real-time inventory tracking with multi-level approvals and predictive analytics for production planning. Recognised in the company newsletter and proposed for rollout across multiple plants.",
       tags: ["PowerApps", "Power BI", "Predictive analytics", "Approvals"],
@@ -166,7 +171,7 @@
     cloud: '<path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 19h11.5Z"/>'
   };
   const STACK = [
-    { ic: "grid", h: "Power Platform", tags: ["PowerApps Canvas", "Model-Driven", "Power Automate", "Power BI", "Power Pages", "Dataverse"] },
+    { ic: "grid", h: "Power Platform", tags: ["PowerApps Canvas", "Model-Driven", "Code Apps", "Power Automate", "Copilot Studio", "Power BI", "Power Pages", "Dataverse"] },
     { ic: "ms", h: "Microsoft 365", tags: ["SharePoint Online", "Dynamics 365", "InfoPath", "SharePoint Designer"] },
     { ic: "code", h: "Dev & Integration", tags: ["JavaScript", "HTML / CSS", "C#", "Azure Functions", "REST APIs", "FetchXML"] },
     { ic: "db", h: "Data", tags: ["Dataverse", "SQL Server", "SharePoint Lists", "PostgreSQL", "Supabase"] },
