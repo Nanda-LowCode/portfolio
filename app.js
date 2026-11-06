@@ -97,7 +97,7 @@
      ============================================================ */
   const JOURNEY = [
     { when: "Jun 2025 — Present", co: "TCS", role: "Assistant Consultant · Kochi", pts: [
-      "Full-stack developer on an enterprise Third-Party Compliance platform, built as a Power Apps Code App (React 19, TypeScript, Dataverse): ~40-table KRI dashboard, role-based access layer, 9-screen admin suite and audit trail — 218 commits across a ~60K-LOC codebase.",
+      "Full-stack developer on an enterprise compliance platform, built as a Power Apps Code App (React 19, TypeScript, Dataverse): ~40-table KRI dashboard, role-based access layer, 9-screen admin suite and audit trail — 218 commits across a ~60K-LOC codebase.",
       "Code Apps SME in the AI Cloud unit (Generative AI & Copilot Studio); migrated a Power Pages portal to a Code App using GitHub Copilot and Azure Repos.",
       "Built a Canvas app on SharePoint enabling secure internal ↔ external collaboration, with domain-level access control.",
       "Power Automate approval workflows for external-access requests, plus auto-revocation for compliance & governance.",
@@ -148,8 +148,8 @@
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
   };
   const PROJECTS = [
-    { feat: true, kind: "TCS · Code App · Enterprise client", icon: "lock", title: "Third-Party Compliance Platform",
-      desc: "Third-party vetting and re-vetting platform built as a Power Apps Code App (React 19 + TypeScript + Vite on Dataverse), replacing a manual supplier-compliance process. Built the KRI dashboard aggregating ~40 Dataverse tables via parallel queries, a role-based access layer over Dataverse security roles, a 9-screen admin suite, and an insert-only audit trail. Integrated Office 365 Users, SharePoint and Power Automate; shipped via pac code push with PR-gated releases to DEV / QA / Stage / Prod.",
+    { feat: true, kind: "TCS · Code App · Enterprise client", icon: "lock", title: "Enterprise Compliance Platform",
+      desc: "Supplier vetting and re-vetting platform built as a Power Apps Code App (React 19 + TypeScript + Vite on Dataverse), replacing a manual supplier-compliance process. Built the KRI dashboard aggregating ~40 Dataverse tables via parallel queries, a role-based access layer over Dataverse security roles, a 9-screen admin suite, and an insert-only audit trail. Integrated Office 365 Users, SharePoint and Power Automate; shipped via pac code push with PR-gated releases to DEV / QA / Stage / Prod.",
       tags: ["React 19", "TypeScript", "Vite", "MUI", "Dataverse", "Power Automate", "MSAL", "Azure DevOps"],
       impact: [["~40", "Dataverse tables"], ["9", "Admin screens"], ["218", "Commits · ~60K LOC"]] },
     { feat: true, kind: "TCS · Code Apps", icon: "scan", title: "Power Pages → Code Apps Migration",
