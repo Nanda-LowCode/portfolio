@@ -558,3 +558,124 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .dr-reorder:disabled { background: var(--paper-2); color: var(--ink-mute); cursor: default; transform: none; filter: none; }
 
 @media (prefers-reduced-motion: reduce){ * { animation: none !important; transition: none !important; } .rv { opacity:1; transform:none; } .hero h1 .ln>span{ transform:none;} }
+
+/* ============================================================
+   POWER APPS THEME — Studio chrome · Fluent surfaces · Power Fx
+   ============================================================ */
+[data-theme="powerapps"] {
+  --paper:    #FAF9F8;
+  --paper-2:  #F3F2F1;
+  --card:     #FFFFFF;
+  --ink:      #201F1E;
+  --ink-soft: #484644;
+  --ink-mute: #7A7876;
+  --line:     #E1DFDD;
+  --line-2:   #C8C6C4;
+  --accent:      #742774;
+  --accent-2:    #B146C2;
+  --accent-ink:  #742774;
+  --accent-wash: rgba(116,39,116,.08);
+  --accent-fg:   #fff;
+  --r-sm: 2px; --r-md: 4px; --r-lg: 8px; --r-xl: 8px;
+  --shadow-sm: 0 0.3px 0.9px rgba(0,0,0,.11), 0 1.6px 3.6px rgba(0,0,0,.13);
+  --shadow-md: 0 0.6px 1.8px rgba(0,0,0,.11), 0 3.2px 7.2px rgba(0,0,0,.13);
+  --shadow-lg: 0 1.2px 3.6px rgba(0,0,0,.11), 0 6.4px 14.4px rgba(0,0,0,.13);
+  --font-display: "Segoe UI Variable Display", "Segoe UI", Inter, system-ui, sans-serif;
+  --font-body:    "Segoe UI Variable Text", "Segoe UI", Inter, system-ui, sans-serif;
+  --font-mono:    "Segoe UI", Inter, system-ui, sans-serif;   /* labels: Fluent sans, not code */
+  --font-code:    "Cascadia Code", Consolas, "JetBrains Mono", ui-monospace, monospace;
+  --bg-motif: radial-gradient(rgba(116,39,116,.16) 1.2px, transparent 1.3px);
+  --bg-motif-size: 22px 22px;
+  --nav-h: 48px; --fx-h: 36px;
+}
+[data-theme="powerapps"] h1, [data-theme="powerapps"] h2, [data-theme="powerapps"] h3, [data-theme="powerapps"] h4 { letter-spacing: -0.02em; font-weight: 600; }
+[data-theme="powerapps"] .eyebrow { font-family: var(--font-code); letter-spacing: .04em; text-transform: none; font-size: 12.5px; }
+[data-theme="powerapps"] .eyebrow::before { content: "‹"; width: auto; height: auto; background: none; color: var(--accent-2); font-weight: 700; }
+[data-theme="powerapps"] .eyebrow::after { content: "›"; color: var(--accent-2); font-weight: 700; margin-left: -4px; }
+
+/* --- Studio header --- */
+[data-theme="powerapps"] .nav,
+[data-theme="powerapps"] .nav.stuck {
+  height: var(--nav-h); padding: 0 var(--pad); background: #742774; backdrop-filter: none;
+  border-bottom: 0; box-shadow: 0 1px 4px rgba(0,0,0,.25); color: #fff;
+}
+[data-theme="powerapps"] .brand { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: #fff; }
+[data-theme="powerapps"] .brand .dot { width: 22px; height: 22px; border-radius: 4px; background: #fff; transform: none; display: grid; place-items: center; }
+[data-theme="powerapps"] .brand .dot::after { content: ""; width: 9px; height: 9px; background: linear-gradient(135deg,#742774,#B146C2); transform: rotate(45deg); border-radius: 2px; }
+[data-theme="powerapps"] .nav-links a { color: rgba(255,255,255,.86); border-radius: 2px; font-size: 13px; padding: 7px 11px; }
+[data-theme="powerapps"] .nav-links a:hover { color: #fff; background: rgba(255,255,255,.14); }
+[data-theme="powerapps"] .nav-links a.active { color: #fff; background: rgba(255,255,255,.2); }
+[data-theme="powerapps"] .nav-links .resume-link:hover { color: #fff; }
+[data-theme="powerapps"] .nav-links .cta { background: #fff; color: #742774; font-weight: 600; margin-left: 6px; }
+[data-theme="powerapps"] .nav-links .cta:hover { background: #F3E5F5; color: #5C1F5C; }
+[data-theme="powerapps"] .scroll-progress { background: #B146C2; }
+
+/* --- Power Fx formula bar --- */
+.fxstrip { display: none; }
+[data-theme="powerapps"] .fxstrip {
+  display: flex; align-items: center; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 79;
+  height: var(--fx-h); padding-inline: var(--pad); background: #fff; border-bottom: 1px solid var(--line);
+  font-size: 12.5px; color: var(--ink-soft);
+}
+.fx-prop { display: flex; align-items: center; gap: 10px; min-width: 112px; padding-right: 12px; margin-right: 12px; border-right: 1px solid var(--line); font-family: var(--font-body); color: var(--ink); }
+.fx-prop::after { content: ""; margin-left: auto; width: 5px; height: 5px; border: solid var(--ink-mute); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg) translateY(-2px); }
+.fx-i { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 600; color: var(--ink-mute); margin-right: 12px; }
+.fx-code { font-family: var(--font-code); font-size: 12.5px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fx-code f { color: #0B5CAD; } .fx-code s { color: #A31515; text-decoration: none; } .fx-code e { color: #267F99; }
+.fx-code.typing { animation: fxType .55s steps(26) both; }
+@keyframes fxType { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@media (max-width: 560px) { .fx-prop { display: none; } }
+@media (prefers-reduced-motion: reduce) { .fx-code.typing { animation: none; } }
+[data-theme="powerapps"] .hero { padding-top: clamp(130px, 19vh, 200px); }
+
+/* --- hero --- */
+[data-theme="powerapps"] .hero h1 { font-size: clamp(38px, 6.6vw, 84px); letter-spacing: -0.035em; line-height: 1.02; }
+[data-theme="powerapps"] .hero h1 em { background: linear-gradient(90deg,#742774,#B146C2); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .05em; }
+[data-theme="powerapps"] .hero-meta { font-family: var(--font-code); font-size: 12px; }
+[data-theme="powerapps"] .hero-meta span::before { border-radius: 1px; }
+
+/* selected-control frame around the portrait (Studio selection handles) */
+.sel, .sel-tag { display: none; }
+[data-theme="powerapps"] .sel { display: block; position: absolute; inset: -8px; border: 1.5px solid var(--accent); pointer-events: none; z-index: 2; }
+[data-theme="powerapps"] .sel i { position: absolute; width: 9px; height: 9px; background: #fff; border: 1.5px solid var(--accent); }
+.sel i:nth-child(1){ top:-5px; left:-5px; } .sel i:nth-child(2){ top:-5px; left:calc(50% - 5px); } .sel i:nth-child(3){ top:-5px; right:-5px; }
+.sel i:nth-child(4){ top:calc(50% - 5px); left:-5px; } .sel i:nth-child(5){ top:calc(50% - 5px); right:-5px; }
+.sel i:nth-child(6){ bottom:-5px; left:-5px; } .sel i:nth-child(7){ bottom:-5px; left:calc(50% - 5px); } .sel i:nth-child(8){ bottom:-5px; right:-5px; }
+[data-theme="powerapps"] .sel-tag { display: block; position: absolute; top: -33px; left: -8px; z-index: 3; background: var(--accent); color: #fff; font-family: var(--font-code); font-size: 11px; padding: 3px 8px; border-radius: 2px 2px 0 0; }
+[data-theme="powerapps"] .portrait { border-radius: 0; box-shadow: var(--shadow-lg); }
+[data-theme="powerapps"] .portrait-tag { border-radius: 2px; }
+[data-theme="powerapps"] .float-badge { border-radius: 2px; font-family: var(--font-code); }
+[data-theme="powerapps"] .float-badge .d { background: var(--accent-2); }
+
+/* --- Fluent buttons, chips, pills --- */
+[data-theme="powerapps"] .btn { border-radius: 4px; padding: 12px 20px; font-weight: 600; font-size: 14px; }
+[data-theme="powerapps"] .btn-primary { background: var(--accent); color: #fff; }
+[data-theme="powerapps"] .btn-primary:hover { background: #5C1F5C; color: #fff; }
+[data-theme="powerapps"] .btn-ghost { border: 1px solid var(--line-2); background: #fff; }
+[data-theme="powerapps"] .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+[data-theme="powerapps"] .chip, [data-theme="powerapps"] .fpill, [data-theme="powerapps"] .badge,
+[data-theme="powerapps"] .demo-chip, [data-theme="powerapps"] .proj-tags span, [data-theme="powerapps"] .vent-meta span,
+[data-theme="powerapps"] .sc-tags span { border-radius: 2px; font-family: var(--font-body); }
+[data-theme="powerapps"] .chip { background: #fff; border-color: var(--line-2); }
+[data-theme="powerapps"] .chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-wash); }
+
+/* --- cards: flat Fluent surfaces --- */
+[data-theme="powerapps"] .proj, [data-theme="powerapps"] .vent, [data-theme="powerapps"] .stack-card,
+[data-theme="powerapps"] .tl-card, [data-theme="powerapps"] .cert-band, [data-theme="powerapps"] .fact, [data-theme="powerapps"] .demo-frame {
+  border-radius: 8px; box-shadow: var(--shadow-sm);
+}
+[data-theme="powerapps"] .proj:hover, [data-theme="powerapps"] .stack-card:hover, [data-theme="powerapps"] .vent:hover { box-shadow: var(--shadow-md); border-color: var(--accent-2); }
+[data-theme="powerapps"] .sc-ic { background: color-mix(in srgb, var(--pc, #742774) 12%, #fff); color: var(--pc, #742774); border-radius: 4px; }
+[data-theme="powerapps"] .proj-ic { border-radius: 4px; }
+
+/* --- demo frame = Power Apps Studio --- */
+[data-theme="powerapps"] .fxbar { display: flex; font-family: var(--font-code); }
+[data-theme="powerapps"] .fxbar .fx { font-family: Georgia, serif; font-style: italic; font-weight: 600; color: var(--ink-mute); }
+[data-theme="powerapps"] .demo-bar { background: #742774; border-bottom: 0; }
+[data-theme="powerapps"] .demo-bar .demo-url { background: rgba(255,255,255,.16); border-color: transparent; color: #fff; font-family: var(--font-code); }
+[data-theme="powerapps"] .demo-bar .dots i { background: rgba(255,255,255,.55); }
+[data-theme="powerapps"] .demo-bar .demo-chip { background: #fff; color: #742774; font-weight: 600; }
+[data-theme="powerapps"] .toast { border-radius: 4px; font-family: var(--font-body); }
+[data-theme="powerapps"] .fb-1 { top: 28px; right: -52px; }
+[data-theme="powerapps"] .fb-2 { left: -52px; }
+[data-theme="powerapps"] section[id], [data-theme="powerapps"] footer[id] { scroll-margin-top: 84px; }

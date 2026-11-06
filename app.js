@@ -33,6 +33,31 @@
     const el = document.getElementById(id); if (el) secObs.observe(el);
   });
 
+  /* ---------- POWER FX FORMULA BAR (follows the active section) ---------- */
+  const FX = {
+    hero:     ["Text",     '<s>"Turning business chaos into clean apps."</s>'],
+    about:    ["Text",     '<f>Concatenate</f>(<s>"8+ years"</s>, <s>" · Code Apps SME"</s>)'],
+    demo:     ["OnSelect", '<f>Navigate</f>(scrInventory, <e>ScreenTransition.Fade</e>)'],
+    journey:  ["Items",    '<f>Sort</f>(Employers, StartDate, <e>SortOrder.Descending</e>)'],
+    work:     ["Items",    '<f>Filter</f>(Projects, Impact = <s>"Replaced a tool"</s>)'],
+    ventures: ["Items",    '<f>LookUp</f>(Ventures, Status = <s>"Live"</s>)'],
+    stack:    ["Items",    '<f>Distinct</f>(Skills, Category)'],
+    contact:  ["OnSelect", '<f>Launch</f>(<s>"mailto:nandaofc1994@gmail.com"</s>)']
+  };
+  const fxProp = $("#fxProp"), fxCode = $("#fxCode");
+  let fxCur = "";
+  const setFx = id => {
+    if (!FX[id] || id === fxCur || !fxCode) return;
+    fxCur = id;
+    fxProp.textContent = FX[id][0];
+    fxCode.innerHTML = FX[id][1];
+    fxCode.classList.remove("typing"); void fxCode.offsetWidth; fxCode.classList.add("typing");
+  };
+  setFx("hero");
+  const fxObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setFx(e.target.id); }),
+    { rootMargin: "-45% 0px -50% 0px" });
+  Object.keys(FX).forEach(id => { const el = document.getElementById(id); if (el) fxObs.observe(el); });
+
   /* ---------- HERO READY ---------- */
   requestAnimationFrame(() => $("#hero").classList.add("ready"));
 
@@ -171,16 +196,16 @@
     cloud: '<path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 19h11.5Z"/>'
   };
   const STACK = [
-    { ic: "grid", h: "Power Platform", tags: ["PowerApps Canvas", "Model-Driven", "Code Apps", "Power Automate", "Copilot Studio", "Power BI", "Power Pages", "Dataverse"] },
-    { ic: "ms", h: "Microsoft 365", tags: ["SharePoint Online", "Dynamics 365", "InfoPath", "SharePoint Designer"] },
-    { ic: "code", h: "Dev & Integration", tags: ["JavaScript", "HTML / CSS", "C#", "Azure Functions", "REST APIs", "FetchXML"] },
-    { ic: "db", h: "Data", tags: ["Dataverse", "SQL Server", "SharePoint Lists", "PostgreSQL", "Supabase"] },
-    { ic: "mig", h: "Migration & Automation", tags: ["ShareGate", "Metalogix", "Nintex", "CI/CD"] },
-    { ic: "cloud", h: "Cloud & Modern Stack", tags: ["Azure Key Vault", "MFA", "Next.js", "React", "TypeScript", "Vercel", "Playwright"] }
+    { ic: "grid", h: "Power Platform", c: "#742774", tags: ["PowerApps Canvas", "Model-Driven", "Code Apps", "Power Automate", "Copilot Studio", "Power BI", "Power Pages", "Dataverse"] },
+    { ic: "ms", h: "Microsoft 365", c: "#D83B01", tags: ["SharePoint Online", "Dynamics 365", "InfoPath", "SharePoint Designer"] },
+    { ic: "code", h: "Dev & Integration", c: "#0078D4", tags: ["JavaScript", "HTML / CSS", "C#", "Azure Functions", "REST APIs", "FetchXML"] },
+    { ic: "db", h: "Data", c: "#038387", tags: ["Dataverse", "SQL Server", "SharePoint Lists", "PostgreSQL", "Supabase"] },
+    { ic: "mig", h: "Migration & Automation", c: "#B8860B", tags: ["ShareGate", "Metalogix", "Nintex", "CI/CD"] },
+    { ic: "cloud", h: "Cloud & Modern Stack", c: "#0062AD", tags: ["Azure Key Vault", "MFA", "Next.js", "React", "TypeScript", "Vercel", "Playwright"] }
   ];
   $("#stackGrid").innerHTML = STACK.map((s, i) => `
     <div class="stack-card rv ${i % 3 === 1 ? "rv-d1" : i % 3 === 2 ? "rv-d2" : ""}">
-      <div class="sc-h"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${sIc[s.ic]}</svg></span><h4>${s.h}</h4></div>
+      <div class="sc-h"><span class="sc-ic" style="--pc:${s.c}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${sIc[s.ic]}</svg></span><h4>${s.h}</h4></div>
       <div class="sc-tags">${s.tags.map(t => `<span>${t}</span>`).join("")}</div>
     </div>`).join("");
   $$("#stackGrid .rv").forEach(el => io.observe(el));
