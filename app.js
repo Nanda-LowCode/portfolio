@@ -97,6 +97,7 @@
      ============================================================ */
   const JOURNEY = [
     { when: "Jun 2025 — Present", co: "TCS", role: "Assistant Consultant · Kochi", pts: [
+      "Full-stack developer on an enterprise Third-Party Compliance platform, built as a Power Apps Code App (React 19, TypeScript, Dataverse): ~40-table KRI dashboard, role-based access layer, 9-screen admin suite and audit trail — 218 commits across a ~60K-LOC codebase.",
       "Code Apps SME in the AI Cloud unit (Generative AI & Copilot Studio); migrated a Power Pages portal to a Code App using GitHub Copilot and Azure Repos.",
       "Built a Canvas app on SharePoint enabling secure internal ↔ external collaboration, with domain-level access control.",
       "Power Automate approval workflows for external-access requests, plus auto-revocation for compliance & governance.",
@@ -147,6 +148,10 @@
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
   };
   const PROJECTS = [
+    { feat: true, kind: "TCS · Code App · Enterprise client", icon: "lock", title: "Third-Party Compliance Platform",
+      desc: "Third-party vetting and re-vetting platform built as a Power Apps Code App (React 19 + TypeScript + Vite on Dataverse), replacing a manual supplier-compliance process. Built the KRI dashboard aggregating ~40 Dataverse tables via parallel queries, a role-based access layer over Dataverse security roles, a 9-screen admin suite, and an insert-only audit trail. Integrated Office 365 Users, SharePoint and Power Automate; shipped via pac code push with PR-gated releases to DEV / QA / Stage / Prod.",
+      tags: ["React 19", "TypeScript", "Vite", "MUI", "Dataverse", "Power Automate", "MSAL", "Azure DevOps"],
+      impact: [["~40", "Dataverse tables"], ["9", "Admin screens"], ["218", "Commits · ~60K LOC"]] },
     { feat: true, kind: "TCS · Code Apps", icon: "scan", title: "Power Pages → Code Apps Migration",
       desc: "Migrated a Power Pages portal to a Power Apps Code App using GitHub Copilot and Azure Repos, moving a low-code portal onto a pro-code React/TypeScript foundation.",
       tags: ["Code Apps", "GitHub Copilot", "Azure Repos", "Power Pages", "TypeScript"] },
@@ -198,7 +203,7 @@
   const STACK = [
     { ic: "grid", h: "Power Platform", c: "#742774", tags: ["PowerApps Canvas", "Model-Driven", "Code Apps", "Power Automate", "Copilot Studio", "Power BI", "Power Pages", "Dataverse"] },
     { ic: "ms", h: "Microsoft 365", c: "#D83B01", tags: ["SharePoint Online", "Dynamics 365", "InfoPath", "SharePoint Designer"] },
-    { ic: "code", h: "Dev & Integration", c: "#0078D4", tags: ["JavaScript", "HTML / CSS", "C#", "Azure Functions", "REST APIs", "FetchXML"] },
+    { ic: "code", h: "Dev & Integration", c: "#0078D4", tags: ["TypeScript", "React 19", "Vite", "MUI", "JavaScript", "HTML / CSS", "C#", "Azure Functions", "REST APIs", "FetchXML", "Power Platform CLI", "Azure DevOps"] },
     { ic: "db", h: "Data", c: "#038387", tags: ["Dataverse", "SQL Server", "SharePoint Lists", "PostgreSQL", "Supabase"] },
     { ic: "mig", h: "Migration & Automation", c: "#B8860B", tags: ["ShareGate", "Metalogix", "Nintex", "CI/CD"] },
     { ic: "cloud", h: "Cloud & Modern Stack", c: "#0062AD", tags: ["Azure Key Vault", "MFA", "Next.js", "React", "TypeScript", "Vercel", "Playwright"] }
